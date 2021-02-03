@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les vins{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-3 mt-3 mb-3">
+                <img class="align-self-start mr-3 show-picture" src="{{wine.picture}}" alt="{{ wine.name }} poster">
+            </div>
+            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-3 mt-3 mb-3">
+                <h1 class="description-title">{{ wine.name }}</h1>
+                <p class="description-wine">{{ wine.description|striptags }}</p>
+                <p class="">Appelation : {{ wine.naming.name }}</p>
+                <p class="">Région : {{ wine.region.name }}</p>
+                <p class="">Couleur : {{ wine.color.name }}</p>
+                <p class="">Prix : {{ wine.price }} €</p>
+                <a href="{{'produit'}}" class="btn btn-primary card-button">Retour à la selection</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

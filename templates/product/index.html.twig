@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les vins{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class=" pt-5 title-bestseller" id="Projets">Les Best Sellers</h1>
+    <div class="row justify-content-around">
+        {% for wine in wine %}
+        <div class="col-xl-5 col-lg-6 col-md-6 col-sm-11 mt-5 mb-5 mx-auto color-card">
+            <div class="card" style="width: 18rem;">
+                <h5 class="card-title wine-name">{{wine.name}}</h5>
+                <img src="{{wine.picture}}" class="card-img-top product-picture" alt="...">
+                <div class="card-body">
+                  <a href="{{wine.id}}" class="btn btn-primary card-button">Voir plus</a>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
