@@ -21,7 +21,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="product_show")
+     * @Route("{id}", requirements={"id"="\d+"}, methods={"GET"}, name="" )
      */
     public function show(Wine $wine): Response
     {
