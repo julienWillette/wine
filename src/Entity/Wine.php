@@ -52,6 +52,16 @@ class Wine
      */
     private $naming;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $year;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isBestseller;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +147,30 @@ class Wine
     public function setNaming(?Naming $naming): self
     {
         $this->naming = $naming;
+
+        return $this;
+    }
+
+    public function getYear(): ?int
+    {
+        return $this->year;
+    }
+
+    public function setYear(int $year): self
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
+    public function getIsBestseller(): ?bool
+    {
+        return $this->isBestseller;
+    }
+
+    public function setIsBestseller(bool $isBestseller): self
+    {
+        $this->isBestseller = $isBestseller;
 
         return $this;
     }
