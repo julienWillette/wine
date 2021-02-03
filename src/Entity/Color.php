@@ -29,6 +29,11 @@ class Color
      */
     private $wine;
 
+    public function __toString() 
+    {
+        return $this->name;
+    }
+
     public function __construct()
     {
         $this->wine = new ArrayCollection();
