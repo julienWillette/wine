@@ -13,15 +13,15 @@
 </div>
 <div class="container">
     <h1 class=" pt-5 title-bestseller" id="Projets">Les Best Sellers</h1>
-    <div class="row justify-content-around">
+    <div class="row justify-content-around align-items-center">
         {% for wine in wine %}
         {% if wine.isBestseller == 1 %}
         <div class="col-xl-5 col-lg-6 col-md-6 col-sm-11 mt-5 mb-5 mx-auto color-card">
             <div class="card" style="width: 18rem;">
-                <h5 class="card-title">{{wine.name}}</h5>
+                <h5 class="card-title wine-name">{{wine.name}}</h5>
                 <img src="{{wine.picture}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="{{wine.id}}" class="btn btn-primary card-button">Voir plus</a>
                 </div>
               </div>
         </div>

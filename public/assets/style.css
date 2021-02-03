@@ -6,6 +6,8 @@
     color: white;
 }
 
+   /*-----home------*/
+
 .img-background-presentation {
     background-image: url("https://i.postimg.cc/xC9zmYmH/kym-ellis-a-F1-NPSn-DQLw-unsplash-2.jpg");
     background-size: cover;
@@ -66,3 +68,40 @@ text-shadow: 1px 1px 1px black;
     height: 500px;  
     width: 500px;
   }
+
+    /*-----produit------*/
+
+.product-picture{
+    height: 300px;
+    width: auto;
+}
+
+.wine-name{
+    text-align: center;
+    color: #560027;
+}
+
+.card-button{
+    background-color: #560027;
+    border: transparent;
+}
+
+.card-button:hover{
+    background-color: #560027;
+    border: transparent;
+}
+
+   /*-----show------*/
+.description-title{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.description-wine{
+    text-align: justify;
+}
+
+.show-picture{
+    height: 300px;
+    width: auto;
+}
