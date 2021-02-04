@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les vins{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div style="margin-top: 5rem;">
+        {{ form_start(form) }}
+      </div>
+      {{ form_row(form.q) }}
+      <h4>couleur</h4>
+      {{ form_row(form.color) }}
+      <h4>Région</h4>
+      {{ form_row(form.region) }}
+      <h4>Appellation</h4>
+      {{ form_row(form.naming) }}
+      <h4>Prix</h4>
+      <div class='row'>
+        <div class="col-md-6">
+          {{ form_row(form.min) }}
+        </div>
+        <div class="col-md-6">
+          {{ form_row(form.max) }}       
+        </div>
+      </div>
+      <button type="submit" class="btn w-100 mb-3 filter-button">Filtrer</button>
+      {{ form_end(form) }}
+    </div>
+    <div class="col-md-9">
+      <h1 class=" pt-5 title-bestseller" id="Projets">Les Best Sellers</h1>
+      <div class="row justify-content-around">
+          {% for wine in wine %}
+          <div class="col-xl-5 col-lg-6 col-md-6 col-sm-11 mt-5 mb-5 mx-auto color-card">
+              <div class="card" style="width: 18rem;">
+                  <h5 class="card-title wine-name">{{wine.name}}</h5>
+                  <img src="{{wine.picture}}" class="card-img-top product-picture" alt="...">
+                  <div class="card-body">
+                    <a href="{{wine.id}}" class="btn btn-primary card-button">Voir plus</a>
+                    <a href="{{ path('cart_add', {'id': wine.id} )}}" class="btn btn-success">
+                      <i class="fas fa-shopping-cart mr-1"></i>
+                    </a>
+                  </div>
+                  <div>
+                    {% for c in wine.color %}
+                      <em class="text-muted text-primary text-italic">{{ c.name }}</em>
+                    {% endfor %}
+                  </div>
+                </div>
+          </div>
+          {% endfor %}
+      </div>
+  </div>
+</div>
+{% endblock %}
