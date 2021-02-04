@@ -4,7 +4,10 @@ namespace App\Repository;
 
 use App\Entity\Wine;
 use App\Data\SearchData;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
+use Knp\Component\Pager\Pagination\PaginationInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
@@ -15,16 +18,41 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
  */
 class WineRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Wine::class);
+        $this->paginator = $paginator;
     }
 
     /**
      * Récupère les produits en lien avec une recherche
-     * @return Wine[]
+     * @return PaginationInterface
      */
-    public function findSearch(SearchData $search): array
+    public function findSearch(SearchData $search): PaginationInterface
+    {
+        $query = $this->getSearchQuery($search)->getQuery();
+        return $this->paginator->paginate(
+            $query,
+            $search->page,
+            6
+        );
+    }
+
+    /**
+     * Récupère le prix minimum et maximum correspondant à une recherche
+     * @return integer[]
+     */
+    public function findMinMax(SearchData $search): array
+    {
+        $results = $this->getSearchQuery($search, true)
+            ->select('MIN(p.price) as min', 'MAX(p.price) as max')
+            ->getQuery()
+            ->getScalarResult();
+        return[(int)$results[0]['min'], (int)$results[0]['max']];
+
+    }
+
+    private function getSearchQuery(SearchData $search, $ignorePrice = false): QueryBuilder
     {
         $query = $this
             ->createQueryBuilder('p')
@@ -39,16 +67,16 @@ class WineRepository extends ServiceEntityRepository
                     ->setParameter('q', "%{$search->q}%");
             }
 
-            if(!empty($search->min)) {
+            if(!empty($search->min) && $ignorePrice === false) {
                 $query = $query
                     ->andWhere('p.price >= :min')
-                    ->setParameter('min', $search->q);
+                    ->setParameter('min', $search->min);
             }
 
-            if(!empty($search->max)) {
+            if(!empty($search->max) && $ignorePrice === false) {
                 $query = $query
                     ->andWhere('p.price <= :max')
-                    ->setParameter('max', $search->q);
+                    ->setParameter('max', $search->max);
             }
 
             if(!empty($search->color)) {
@@ -68,11 +96,9 @@ class WineRepository extends ServiceEntityRepository
                     ->andWhere('r.id IN (:region)')
                     ->setParameter('region', $search->region);
             }
-
-
-        return $query->getQuery()->getResult();
+            return $query;
     }
-
+    
     // /**
     //  * @return Wine[] Returns an array of Wine objects
     //  */

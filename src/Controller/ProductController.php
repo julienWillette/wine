@@ -16,15 +16,19 @@ class ProductController extends AbstractController
     /**
      * @Route("/produit", name="product")
      */
-    public function index(WineRepository $wineReposytory, Request $request): Response
+    public function index(WineRepository $wineRepository, Request $request): Response
     {
         $data = new SearchData();
+        $data->page = $request->get('page', 1);
         $form = $this->createForm(SearchForm::class, $data);
         $form->handleRequest($request);
-        $wineReposytory = $wineReposytory->findSearch($data);
+        [$min, $max] = $wineRepository->findMinMax($data);
+        $wineRepository = $wineRepository->findSearch($data);
         return $this->render('product/index.html.twig', [
-            'wine' => $wineReposytory,
-            'form' => $form->createView()
+            'wine' => $wineRepository,
+            'form' => $form->createView(),
+            'min' => $min,
+            'max' => $max
         ]);
     }
 

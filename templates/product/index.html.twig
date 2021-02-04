@@ -25,6 +25,10 @@
           {{ form_row(form.max) }}       
         </div>
       </div>
+      <div id="price-slider" data-min="{{ min }}" data-max="{{ max }}" style="margin-bottom: 3rem;"></div>
+
+      {{ dump(min, max) }}
+
       <button type="submit" class="btn w-100 mb-3 filter-button">Filtrer</button>
       {{ form_end(form) }}
     </div>
@@ -50,7 +54,11 @@
                 </div>
           </div>
           {% endfor %}
-      </div>
+        </div>
+        <div>
+          {{ knp_pagination_render(wine) }}
+        </div>
   </div>
+
 </div>
 {% endblock %}
