@@ -84,6 +84,19 @@ text-shadow: 1px 1px 1px black;
 .card-button{
     background-color: #560027;
     border: transparent;
+    color: white;
+}
+
+.filter-button{
+    background-color: #560027;
+    border: transparent;
+    color: white;
+}
+
+.filter-button:hover{
+    background-color: #560027;
+    border: transparent;
+    color: white;
 }
 
 .card-button:hover{
