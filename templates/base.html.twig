@@ -18,12 +18,19 @@
             <div class="container-fluid justify-content-around">
                 <a class="nav-link" href="{{ path('home')}}">Home</a>
                 <a class="nav-link" href="{{'produit'}}">Les Vins</a>
-                <a class="nav-link" href="">Panier</a>
                 {% if is_granted("ROLE_USER")%}
                 <a class="nav-link" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i></a>
                 {% else %}
                 <a class="nav-link" href="{{'login'}}">Login</a>
                 {% endif %}
+                {% if app.session.get('cart') %}
+                <a href="{{ path('cart') }}" class="cart-cart nav-link"><i class="fas fa-shopping-cart "></i>
+                <span class="badge badge-danger badge-cart">{{ app.session.get('panier') }}</span></a>
+                {% else %}
+                <a href="{{ path('cart') }}" class="cart-cart nav-link">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+        {% endif %}
             </div>
         </nav>
     </header>
