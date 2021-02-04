@@ -13,6 +13,9 @@
                 <img src="{{wine.picture}}" class="card-img-top product-picture" alt="...">
                 <div class="card-body">
                   <a href="{{wine.id}}" class="btn btn-primary card-button">Voir plus</a>
+                  <a href="{{ path('cart_add', {'id': wine.id} )}}" class="btn btn-success">
+                    <i class="fas fa-shopping-cart mr-1"></i>
+                  </a>
                 </div>
               </div>
         </div>

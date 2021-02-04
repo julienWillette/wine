@@ -16,6 +16,9 @@
                 <p class="">Région : {{ wine.region.name }}</p>
                 <p class="">Couleur : {{ wine.color.name }}</p>
                 <p class="">Prix : {{ wine.price }} €</p>
+                <a href="{{ path('cart_add', {'id': wine.id} )}}" class="btn btn-success">
+                    <i class="fas fa-shopping-cart mr-1"></i>
+                </a>
                 <a href="{{'produit'}}" class="btn btn-primary card-button">Retour à la selection</a>
             </div>
         </div>
