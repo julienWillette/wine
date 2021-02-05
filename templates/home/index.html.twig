@@ -16,31 +16,28 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <h1 class=" pt-5 title-bestseller" id="Projets">Les Best Sellers</h1>
-    <div class="row justify-content-around align-items-center">
-        {% for wine in wine %}
-        {% if wine.isBestseller == 1 %}
-        <div class="col-xl-5 col-lg-6 col-md-6 col-sm-11 mt-5 mb-5 mx-auto color-card">
-            <div class="card" style="width: 18rem;">
-                <h5 class="card-title wine-name">{{wine.name}}</h5>
-                <img src="{{wine.picture}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <a href="{{wine.id}}" class="btn btn-primary card-button">Voir plus</a>
-                  <a href="{{ path('cart_add', {'id': wine.id} )}}" class="btn btn-success">
-                    <i class="fas fa-shopping-cart mr-1"></i>
-                  </a>
-                </div>
-              </div>
+<div class="container-fluid">
+    <div class="container">
+        <h1 class=" pt-5 title-bestseller" id="Projets">Les Best Sellers</h1>
+        <div class="row justify-content-around">
+            {% for wine in wine %}
+            {% if wine.isBestseller == 1 %}
+            <div class="col-xl-3 col-l-6 col-lg-6 col-md-6 col-sm-11 mt-5 mb-5 mx-auto">
+                <div class="card">
+                    <h5 class="card-title wine-name">{{wine.name}}</h5>
+                    <hr>
+                    <img src="{{wine.picture}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <a href="{{wine.id}}" class="btn btn-primary card-button">Voir plus</a>
+                      <a href="{{ path('cart_add', {'id': wine.id} )}}" class="btn btn-success">
+                        <i class="fas fa-shopping-cart mr-1"></i>
+                      </a>
+                    </div>
+                  </div>
+            </div>
+            {% endif %}
+            {% endfor %}
         </div>
-        {% endif %}
-        {% endfor %}
     </div>
-</div>
-<div class="container pb-5">
-        <h1 class="title-french-map">La carte des vins de France</h1>
-        <div class="french-wine-map">
-        
-        </div>
 </div>
 {% endblock %}

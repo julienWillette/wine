@@ -3,9 +3,10 @@
 {% block title %}Cart{% endblock %}
 
 {% block body %}
-<h1>Votre panier</h1>
+
 
 {% if items | length %}
+<h1 class="title-cart">Votre panier</h1>
     <table class="table">
         <thead>
             <tr>
@@ -40,12 +41,12 @@
         </tfoot>
     </table>
     {% if app.user is empty %}
-    <a href="{{ 'login' }}"><button id="checkout-button">Acheter</button></a>
+    <a href="{{ 'login' }}"><button class="buy-button" id="checkout-button">Acheter</button></a>
     {% else %}
-    <a href="{{ 'success' }}"><button id="checkout-button">Acheter</button></a>
+    <a href="{{ 'success' }}"><button class="buy-button" id="checkout-button">Acheter</button></a>
     {% endif %}
 {% else %}
-<h1>Votre panier est vide</h1>
+<h1 class="cart-empty">Votre panier est vide</h1>
 {% endif %}
 
 {% endblock %}
