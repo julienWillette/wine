@@ -167,3 +167,27 @@ text-shadow: 1px 1px 1px black;
     font-family: 'Lemonada', cursive;
     align-self: center;
 }
+
+    /*-----login------*/
+
+.login-button{
+    background-color: #560027;
+    border: transparent;
+    color: white;
+    font-family: 'Lemonada', cursive;
+    align-self: center;
+    margin-left: 5rem;
+    margin-top: 2rem;
+}
+
+.login-title{
+    text-align: center;
+    color: #560027;
+    font-family: 'Lemonada', cursive;
+}
+
+.flashMessage{
+    text-align: center;
+    font-family: 'Lemonada', cursive;
+    background-color: lime;
+}
