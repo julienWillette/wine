@@ -2,9 +2,15 @@
 
 namespace App\Controller;
 
+use Stripe\Stripe;
 use App\Service\Cart\CartService;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Routing\Generator\UrlGenerator;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CartController extends AbstractController
@@ -38,4 +44,27 @@ class CartController extends AbstractController
         return $this->redirectToRoute('cart');
     }
 
+
+    /**
+     * @Route("/success", name="success")
+     */
+    public function success(Request $request, SessionInterface $session): Response
+    {
+        $this->addFlash(
+            'notice',
+            'Votre commande a bien été pris en compte'
+        );
+        $session->clear();
+        return $this->redirectToRoute('home');
+    }
+
+    /**
+     * @Route("/error", name="error")
+     */
+    public function error()
+    {
+        return $this->render('cart/error.html.twig');
+    }
+    
 }
+

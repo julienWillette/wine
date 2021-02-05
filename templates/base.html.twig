@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/12c728ad22.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png" />
-    <title>Julien Willette | Portfolio Développeur web</title>
+    <title>Le die-vin de Bacchus !</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.typekit.net/qvv2miy.css">
     <link rel="stylesheet" href="{{asset('assets/style.css')}}" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lemonada&display=swap" rel="stylesheet">   
+    {{ encore_entry_link_tags('app') }}
+    {{ encore_entry_script_tags('app') | replace({'src=': 'defer src='}) | raw }}
 </head>
 <body>
     <header>
@@ -23,7 +28,7 @@
                 {% else %}
                 <a class="nav-link" href="{{'login'}}">Login</a>
                 {% endif %}
-                {% if app.session.get('cart') %}
+                {% if app.session.get('') %}
                 <a href="{{ path('cart') }}" class="cart-cart nav-link"><i class="fas fa-shopping-cart "></i>
                 <span class="badge badge-danger badge-cart">{{ app.session.get('panier') }}</span></a>
                 {% else %}
