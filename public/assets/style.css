@@ -4,6 +4,12 @@
 
 .nav-link{
     color: white;
+    font-family: 'Lemonada', cursive;
+}
+
+.nav-link:hover{
+    color: black;
+    font-family: 'Lemonada', cursive;
 }
 
    /*-----home------*/
@@ -33,14 +39,14 @@ text-shadow: 1px 1px 1px black;
 
 .title-1{
     color: #F8FF00;
-    font-family:  'Raleway', sans-serif;
     font-size: 23px;
+    font-family: 'Lemonada', cursive;
 }
 
 .title-2{
     color: #F8FF00;
-    font-family:  'Raleway', sans-serif;
     font-size: 65px;
+    font-family: 'Lemonada', cursive;
 }
 
 .title-bestseller{
@@ -49,6 +55,7 @@ text-shadow: 1px 1px 1px black;
     color: #560027;
     font-family:  'Raleway', sans-serif;
     font-size: 65px;
+    font-family: 'Lemonada', cursive;
 }
 
 .title-french-map{
@@ -57,16 +64,17 @@ text-shadow: 1px 1px 1px black;
     color: #560027;
     font-family:  'Raleway', sans-serif;
     font-size: 65px;
+    font-family: 'Lemonada', cursive;
 }
 
 .french-wine-map {
-    background-image: url("https://i.postimg.cc/4y2hHNrd/carte-regions-vin-de-france.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 500px;  
-    width: 500px;
+    height: 600px;  
+    width: 600px;
+    margin-bottom: 5rem;
   }
 
     /*-----produit------*/
@@ -79,35 +87,49 @@ text-shadow: 1px 1px 1px black;
 .wine-name{
     text-align: center;
     color: #560027;
+    font-family: 'Lemonada', cursive;
+    margin-top: 2rem;
 }
 
 .card-button{
     background-color: #560027;
     border: transparent;
     color: white;
+    font-family: 'Lemonada', cursive;
+}
+
+.title-filter{
+    text-align: center;
+    color: #560027;
+    font-family: 'Lemonada', cursive;
 }
 
 .filter-button{
     background-color: #560027;
     border: transparent;
     color: white;
+    font-family: 'Lemonada', cursive;
 }
 
 .filter-button:hover{
     background-color: #560027;
     border: transparent;
     color: white;
+    font-family: 'Lemonada', cursive;
 }
 
 .card-button:hover{
     background-color: #560027;
     border: transparent;
+    font-family: 'Lemonada', cursive;
 }
 
    /*-----show------*/
 .description-title{
     text-align: center;
     vertical-align: middle;
+    color: #560027;
+    font-family: 'Lemonada', cursive;
 }
 
 .description-wine{
@@ -119,6 +141,53 @@ text-shadow: 1px 1px 1px black;
     width: auto;
 }
 
-.badge-cart{
-    color: red;
+    /*-----cart------*/
+
+.title-cart{
+    text-align: center;
+    color: #560027;
+    font-family: 'Lemonada', cursive;
+}
+
+.cart-empty{
+    text-align: center;
+    vertical-align: middle;
+    color: #560027;
+    font-family: 'Lemonada', cursive;
+}
+
+.card-body{
+    align-items: center;
+}
+
+.buy-button{
+    background-color: #560027;
+    border: transparent;
+    color: white;
+    font-family: 'Lemonada', cursive;
+    align-self: center;
+}
+
+    /*-----login------*/
+
+.login-button{
+    background-color: #560027;
+    border: transparent;
+    color: white;
+    font-family: 'Lemonada', cursive;
+    align-self: center;
+    margin-left: 5rem;
+    margin-top: 2rem;
+}
+
+.login-title{
+    text-align: center;
+    color: #560027;
+    font-family: 'Lemonada', cursive;
+}
+
+.flashMessage{
+    text-align: center;
+    font-family: 'Lemonada', cursive;
+    background-color: lime;
 }
