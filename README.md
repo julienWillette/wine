@@ -40,5 +40,3 @@ the trello: https://drive.google.com/file/d/14IpZOUAkkzr2wrBX1V6RcaVKBwArOulP/vi
 
 the database: https://drive.google.com/file/d/1bj7R04i7BwVKnxvkUNUiBRaRnWTinr_k/view?usp=sharing
 
-the wire frame: https://drive.google.com/file/d/1YtBAQNlxHz-AzHMt_07G9f4a28y1vJ8j/view?usp=sharing
-                https://drive.google.com/file/d/1v00COQ1nLkpLc5XDFaL97xkRUXav2afC/view?usp=sharing
